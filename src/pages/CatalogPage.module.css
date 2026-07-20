@@ -1,0 +1,154 @@
+.page {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 1.75rem;
+  align-items: start;
+  padding-top: 1.25rem;
+  min-height: calc(100vh - 8rem);
+}
+
+.menu {
+  position: sticky;
+  top: 1rem;
+  padding: 0.25rem 0;
+  border-right: 1px solid var(--border);
+  padding-right: 1rem;
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+}
+
+.menuLabel {
+  margin: 0 0 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.menuNav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.menuItem,
+.menuItemOn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.menuItem:hover {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+.menuItemOn {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.menuItemOn .badge {
+  color: var(--accent);
+}
+
+.content {
+  min-width: 0;
+  padding-bottom: 2rem;
+}
+
+.head h1 {
+  font-size: 1.65rem;
+  margin-bottom: 0.35rem;
+}
+
+.head p {
+  margin: 0 0 1.1rem;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.search {
+  flex: 1;
+  min-width: 12rem;
+  max-width: 28rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.count {
+  font-size: 0.9rem;
+  margin: 0;
+  color: var(--ink-faint);
+}
+
+.hl {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.list {
+  border-top: 1px solid var(--border);
+  margin-top: 0.75rem;
+}
+
+.empty {
+  padding: 2rem 0;
+}
+
+@media (max-width: 800px) {
+  .page {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .menu {
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding-right: 0;
+    padding-bottom: 0.75rem;
+    max-height: none;
+  }
+
+  .menuNav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 0.35rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .menuItem,
+  .menuItemOn {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}

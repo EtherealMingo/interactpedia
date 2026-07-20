@@ -1,0 +1,131 @@
+.wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;width:100%;min-height:180px}
+.row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:center}
+.btn{border:none;border-radius:999px;padding:.55rem 1rem;font-weight:700;background:var(--accent);color:#fff}
+.btnGhost{border:1px solid var(--border);border-radius:999px;padding:.5rem .9rem;font-weight:600;background:#fff;color:var(--ink)}
+.btnSoft{border:1px solid var(--border);border-radius:10px;padding:.45rem .7rem;background:#fff}
+.field{border:1px solid var(--border);border-radius:10px;padding:.55rem .75rem;background:#fff;min-width:12rem}
+.meta{font-size:.82rem;color:var(--ink-faint)}
+.stage{position:relative;width:100%;max-width:420px;min-height:120px;display:flex;align-items:center;justify-content:center}
+.card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1rem;box-shadow:0 1px 0 rgba(20,32,26,.04)}
+.previewBox{width:160px;height:72px;border-radius:12px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:700}
+.miniNav{display:flex;gap:1rem;padding:.65rem 1rem;background:#fff;border:1px solid var(--border);border-radius:12px;font-weight:600;font-size:.85rem}
+.layoutBox{width:100%;max-width:460px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff;font-size:.75rem}
+.layoutHead,.layoutFoot{background:var(--bg-elevated);padding:.45rem .6rem;font-weight:700}
+.layoutBody{display:grid;grid-template-columns:72px 1fr;min-height:90px}
+.layoutSide{background:var(--preview);padding:.45rem}
+.layoutMain{padding:.45rem}
+.swatch{width:36px;height:36px;border-radius:10px;border:1px solid var(--border)}
+.tokenRow{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap;justify-content:center}
+.wire{border:1px dashed rgba(20,32,26,.2);border-radius:8px;padding:.5rem;background:rgba(255,255,255,.7)}
+.fade{animation:vhFade .7s ease both}
+.slideIn{animation:vhSlide .65s ease both}
+.scaleIn{animation:vhScale .55s cubic-bezier(.2,.8,.2,1) both}
+.springIn{animation:vhSpring .7s cubic-bezier(.2,1.4,.3,1) both}
+.blurIn{animation:vhBlur .7s ease both}
+.staggerItem{opacity:0;animation:vhFade .45s ease forwards}
+.clipReveal{animation:vhClip .8s ease both}
+.hoverLift{transition:transform .2s ease,box-shadow .2s ease;background:#fff;border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem;font-weight:700}
+.hoverLift:hover{transform:translateY(-8px);box-shadow:0 12px 28px rgba(20,32,26,.12)}
+.rippleBtn{position:relative;overflow:hidden;border:none;border-radius:999px;padding:.65rem 1.2rem;background:var(--accent);color:#fff;font-weight:700}
+.rippleSpan{position:absolute;border-radius:50%;transform:scale(0);animation:vhRipple .6s linear;background:rgba(255,255,255,.45);pointer-events:none}
+.likeBurst{font-size:1.6rem;border:none;background:transparent}
+.magnetic{border:none;border-radius:999px;padding:.7rem 1.3rem;background:var(--ink);color:#fff;font-weight:700;transition:transform .12s ease}
+.shake{animation:vhShake .45s ease}
+.checkmark{width:56px;height:56px}
+.checkmark path{fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-dasharray:48;stroke-dashoffset:48;animation:vhDraw .7s ease forwards}
+.spinner{width:28px;height:28px;border:3px solid rgba(20,32,26,.15);border-top-color:var(--accent);border-radius:50%;animation:vhSpin .7s linear infinite}
+.shimmer{width:180px;height:14px;border-radius:8px;background:linear-gradient(90deg,#d5ddd8,#f0f4f1,#d5ddd8);background-size:200% 100%;animation:vhShimmer 1.2s ease infinite}
+.progressAnim{width:200px;height:8px;border-radius:999px;background:rgba(20,32,26,.08);overflow:hidden}
+.progressAnim>i{display:block;height:100%;width:0;background:var(--accent);animation:vhProgress 1.4s ease forwards;border-radius:inherit}
+.dots span{display:inline-block;width:8px;height:8px;margin:0 3px;border-radius:50%;background:var(--accent);animation:vhBounce 1s infinite}
+.dots span:nth-child(2){animation-delay:.15s}
+.dots span:nth-child(3){animation-delay:.3s}
+.pulse{width:48px;height:48px;border-radius:50%;background:var(--accent);animation:vhPulse 1.2s ease infinite}
+.pageA,.pageB{position:absolute;inset:20%;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;background:#fff;border:1px solid var(--border)}
+.crossfadeA{animation:vhFadeOut .6s ease forwards}
+.crossfadeB{animation:vhFade .6s ease}
+.slideTrans{animation:vhSlide .55s ease}
+.containerMorph{width:80px;height:80px;border-radius:16px;background:var(--accent);animation:vhMorph 1.4s ease infinite alternate}
+.scrollBox{width:100%;max-width:320px;height:140px;overflow:auto;border:1px solid var(--border);border-radius:12px;background:#fff}
+.revealItem{padding:.75rem;margin:.5rem;background:var(--preview);border-radius:10px;animation:vhFade .6s ease both}
+.scrollBar{position:sticky;top:0;height:4px;background:var(--accent);transform-origin:left;width:var(--p,0%)}
+.hScroll{display:flex;gap:.6rem;overflow-x:auto;width:100%;max-width:360px;padding-bottom:.35rem}
+.hScroll>div{flex:0 0 120px;height:72px;border-radius:12px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:700}
+.glow{padding:.7rem 1.1rem;border-radius:999px;background:#fff;border:1px solid var(--accent);color:var(--accent);font-weight:700;animation:vhGlow 1.4s ease infinite}
+.bounceBox{animation:vhBounceBox .8s ease infinite}
+.wiggleBox{animation:vhWiggle .7s ease infinite}
+.flashBox{animation:vhFlash 1s ease}
+.badgePop{position:relative;padding:.6rem .9rem;background:#fff;border:1px solid var(--border);border-radius:10px}
+.badgePop i{position:absolute;top:-6px;right:-6px;background:var(--accent);color:#fff;font-size:.65rem;font-style:normal;font-weight:700;padding:2px 5px;border-radius:999px;animation:vhPop .45s ease}
+.gradFlow{width:180px;height:56px;border-radius:14px;background:linear-gradient(120deg,#2f6f4e,#7cb083,#2f6f4e);background-size:200% 200%;animation:vhGrad 2s ease infinite;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.float{animation:vhFloat 2.4s ease-in-out infinite}
+.marquee{width:240px;overflow:hidden;white-space:nowrap;border:1px solid var(--border);border-radius:999px;padding:.45rem 0;background:#fff}
+.marquee span{display:inline-block;padding-left:100%;animation:vhMarquee 8s linear infinite;font-weight:600}
+.blob{width:90px;height:90px;background:var(--accent);border-radius:40% 60% 55% 45%/50% 45% 55% 50%;animation:vhBlob 3s ease-in-out infinite}
+.breathe{width:64px;height:64px;border-radius:50%;background:rgba(47,111,78,.25);border:2px solid var(--accent);animation:vhBreathe 2s ease-in-out infinite}
+.type{font-weight:700;font-size:1.05rem;border-right:2px solid var(--accent);white-space:nowrap;overflow:hidden;animation:vhType 2.5s steps(12) infinite}
+.split span{display:inline-block;opacity:0;animation:vhFade .4s ease forwards}
+.gradText{font-size:1.4rem;font-weight:800;background:linear-gradient(90deg,#2f6f4e,var(--ink),#2f6f4e);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:vhGrad 2s linear infinite}
+.count{font-size:2rem;font-weight:800;font-variant-numeric:tabular-nums}
+.flipCard{width:120px;height:72px;perspective:600px}
+.flipInner{width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d;position:relative}
+.flipCard:hover .flipInner{transform:rotateY(180deg)}
+.flipFace{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;background:#fff;border:1px solid var(--border)}
+.flipBack{transform:rotateY(180deg);background:var(--accent);color:#fff;border-color:var(--accent)}
+.cube{width:64px;height:64px;transform-style:preserve-3d;animation:vhCube 4s linear infinite}
+.cubeFace{position:absolute;inset:0;background:rgba(47,111,78,.85);border:1px solid #fff;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.7rem}
+.masonry{columns:3;column-gap:.4rem;width:100%;max-width:360px}
+.masonry>div{break-inside:avoid;margin-bottom:.4rem;background:#fff;border:1px solid var(--border);border-radius:10px;padding:.5rem;font-size:.75rem}
+.heroMini{width:100%;max-width:400px;padding:1.25rem;border-radius:14px;background:linear-gradient(135deg,var(--preview),#fff);border:1px solid var(--border)}
+.heroMini strong{font-size:1.2rem}
+.svgStage{width:160px;height:100px}
+.strokePath{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-dasharray:200;stroke-dashoffset:200;animation:vhDrawPath 2s ease forwards infinite}
+.ants{stroke-dasharray:6 6;animation:vhAnts 1s linear infinite}
+.neon{filter:drop-shadow(0 0 4px #2f6f4e) drop-shadow(0 0 10px #2f6f4e)}
+.gooey filter{position:absolute}
+.goo{display:flex;gap:0;filter:url(#goo)}
+.goo i{width:36px;height:36px;border-radius:50%;background:var(--accent);display:block;animation:vhGoo 1.6s ease-in-out infinite alternate}
+.goo i:nth-child(2){animation-delay:.2s}
+.grain{width:140px;height:80px;border-radius:12px;background:var(--accent);position:relative;overflow:hidden}
+.grain::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(0,0,0,.25) 1px,transparent 1px);background-size:3px 3px;opacity:.35;animation:vhGrain .4s steps(2) infinite}
+.liquid{width:100px;height:100px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#7cb083,var(--accent));animation:vhBlob 2.5s ease-in-out infinite}
+.ring{transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:8}
+.ring .track{stroke:rgba(20,32,26,.12)}
+.ring .bar{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:126;stroke-dashoffset:40;animation:vhRing 1.5s ease infinite alternate}
+.gauge{overflow:visible}
+.spark path{fill:none;stroke:var(--accent);stroke-width:2}
+.wave{width:100%;max-width:320px}
+@keyframes vhFade{from{opacity:0}to{opacity:1}}
+@keyframes vhFadeOut{to{opacity:0}}
+@keyframes vhSlide{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes vhScale{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
+@keyframes vhSpring{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
+@keyframes vhBlur{from{opacity:0;filter:blur(8px)}to{opacity:1;filter:blur(0)}}
+@keyframes vhClip{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes vhRipple{to{transform:scale(4);opacity:0}}
+@keyframes vhShake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}30%,50%,70%{transform:translateX(-6px)}40%,60%{transform:translateX(6px)}}
+@keyframes vhDraw{to{stroke-dashoffset:0}}
+@keyframes vhSpin{to{transform:rotate(360deg)}}
+@keyframes vhShimmer{to{background-position:-200% 0}}
+@keyframes vhProgress{to{width:100%}}
+@keyframes vhBounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-7px)}}
+@keyframes vhPulse{0%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:.6}100%{transform:scale(1);opacity:1}}
+@keyframes vhMorph{from{border-radius:16px;width:80px}to{border-radius:40px;width:140px}}
+@keyframes vhGlow{0%,100%{box-shadow:0 0 0 0 rgba(47,111,78,.45)}50%{box-shadow:0 0 0 10px rgba(47,111,78,0)}}
+@keyframes vhBounceBox{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes vhWiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(4deg)}75%{transform:rotate(-4deg)}}
+@keyframes vhFlash{0%,100%{background:#fff}40%{background:#d8e8df}}
+@keyframes vhPop{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes vhGrad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes vhFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes vhMarquee{to{transform:translateX(-100%)}}
+@keyframes vhBlob{0%,100%{border-radius:40% 60% 55% 45%/50% 45% 55% 50%}50%{border-radius:55% 45% 40% 60%/45% 55% 45% 55%}}
+@keyframes vhBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+@keyframes vhType{0%{width:0}40%{width:7.5em}60%{width:7.5em}100%{width:0}}
+@keyframes vhCube{to{transform:rotateX(360deg) rotateY(360deg)}}
+@keyframes vhDrawPath{0%{stroke-dashoffset:200}50%{stroke-dashoffset:0}100%{stroke-dashoffset:200}}
+@keyframes vhAnts{to{stroke-dashoffset:-24}}
+@keyframes vhGoo{from{transform:translateX(0)}to{transform:translateX(18px)}}
+@keyframes vhGrain{to{transform:translate(1px,1px)}}
+@keyframes vhRing{to{stroke-dashoffset:10}}

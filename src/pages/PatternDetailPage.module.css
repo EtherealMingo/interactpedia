@@ -1,0 +1,146 @@
+.page {
+  padding-top: 1.25rem;
+}
+
+.crumb {
+  display: flex;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  color: var(--ink-faint);
+  margin-bottom: 1rem;
+}
+
+.crumb a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.header {
+  margin-bottom: 1.75rem;
+  max-width: 40rem;
+}
+
+.cat {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin: 0 0 0.35rem;
+}
+
+.header h1 {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.85rem;
+  align-items: baseline;
+}
+
+.en {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink-faint);
+}
+
+.alias,
+.summary {
+  margin: 0.35rem 0;
+}
+
+.id {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  background: var(--bg-elevated);
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 1.75rem 2rem;
+  align-items: start;
+}
+
+.demoPane h2,
+.copy h2 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--ink);
+}
+
+.demoFrame {
+  position: relative;
+  min-height: 220px;
+  padding: 1.15rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.copy section {
+  margin-bottom: 1.35rem;
+}
+
+.copy p,
+.copy li {
+  color: var(--ink-muted);
+}
+
+.copy ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.copy li {
+  margin-bottom: 0.35rem;
+}
+
+.collab {
+  padding: 1rem;
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+}
+
+.collab h3 {
+  font-size: 0.9rem;
+  margin: 0.75rem 0 0.35rem;
+  color: var(--ink);
+}
+
+.collab h3:first-of-type {
+  margin-top: 0.25rem;
+}
+
+.note {
+  color: var(--ink-muted);
+}
+
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.related a {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.3rem 0.65rem;
+  background: var(--accent-soft);
+  border-radius: 999px;
+  color: var(--accent);
+}
+
+.missing {
+  padding: 3rem 0;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
