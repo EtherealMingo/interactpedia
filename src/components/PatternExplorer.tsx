@@ -4,6 +4,7 @@ import { CATEGORIES, type CategoryId, type Pattern } from '../content/types'
 import { getPattern, patterns, searchPatterns } from '../content/patterns'
 import { getExtras } from '../content/extras'
 import { demoMap } from '../demos'
+import { DeviceFrame, deviceForPattern } from './DeviceFrame'
 import styles from './PatternExplorer.module.css'
 
 function patternsByCategory(filterQ: string) {
@@ -150,9 +151,9 @@ export function PatternExplorer({
         {/* Vibehub-style effect card: preview on top, meta footer */}
         <article className={styles.effectCard} key={pattern.id}>
           <div className={styles.preview}>
-            <div className={styles.previewInner}>
+            <DeviceFrame kind={deviceForPattern(pattern)} size="lg">
               {Demo ? <Demo /> : <p className={styles.noDemo}>暂无演示</p>}
-            </div>
+            </DeviceFrame>
           </div>
           <footer className={styles.meta}>
             <div className={styles.metaMain}>

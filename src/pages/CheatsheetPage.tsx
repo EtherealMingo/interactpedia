@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { CATEGORIES, type CategoryId, type Pattern } from '../content/types'
 import { patterns, searchPatterns } from '../content/patterns'
 import { demoMap } from '../demos'
+import { DeviceFrame, deviceForPattern } from '../components/DeviceFrame'
 import styles from './CheatsheetPage.module.css'
 
 function copyPrompt(pattern: Pattern) {
@@ -34,9 +35,9 @@ function EffectCard({ pattern }: { pattern: Pattern }) {
   return (
     <article className={styles.card} id={pattern.id}>
       <div className={styles.preview}>
-        <div className={styles.previewInner}>
-          {Demo ? <Demo /> : <p className={styles.noDemo}>暂无演示</p>}
-        </div>
+        <DeviceFrame kind={deviceForPattern(pattern)} size="sm">
+          {Demo ? <Demo /> : <p className={styles.noDemo}>—</p>}
+        </DeviceFrame>
       </div>
       <footer className={styles.meta}>
         <div className={styles.metaText}>
@@ -92,53 +93,56 @@ export function CheatsheetPage() {
 
   return (
     <div className={styles.page}>
-      <header className={styles.hero}>
-        <p className={styles.eyebrow}>UI 速查 · QUICK REFERENCE</p>
-        <h1 className={styles.title}>组件、动画与布局，一屏速览。</h1>
-        <p className={styles.lead}>
-          按分类铺开全部可演示效果，点名称进目录看加深说明，或复制给 AI 复现。
-        </p>
-        <input
-          className={styles.search}
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder="搜索名称、别名、英文…"
-          aria-label="搜索效果"
-        />
-        <div className={styles.chips} role="tablist" aria-label="分类筛选">
-          {filterChips.map((chip) => (
-            <button
-              key={chip.id}
-              type="button"
-              role="tab"
-              aria-selected={catFilter === chip.id}
-              className={catFilter === chip.id ? styles.chipOn : styles.chip}
-              onClick={() => setCatFilter(chip.id)}
-            >
-              {chip.label}
-              <span className={styles.chipCount}>{chip.count}</span>
-            </button>
-          ))}
-        </div>
-        <p className={styles.count}>{total} 项</p>
-      </header>
+      <div className={styles.content}>
+        <header className={styles.header}>
+          <p className={styles.eyebrow}>UI Interaction Catalog</p>
+          <h1 className={styles.title}>组件、动画与布局，一屏速览。</h1>
+          <p className={styles.lead}>
+            按分类铺开全部可演示效果，点名称进目录看加深说明，或复制给 AI 复现。
+          </p>
+          <input
+            className={styles.search}
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="搜索名称、别名、英文…"
+            aria-label="搜索效果"
+          />
+          <p className={styles.count}>{total} 项</p>
+        </header>
 
-      <div className={styles.sections}>
-        {visibleGroups.map((group) => (
-          <section key={group.id} className={styles.section} id={`cat-${group.id}`}>
-            <div className={styles.sectionHead}>
-              <h2>{group.label}</h2>
-              <p>{group.blurb}</p>
-            </div>
-            <div className={styles.grid}>
-              {group.items.map((item) => (
-                <EffectCard key={item.id} pattern={item} />
-              ))}
-            </div>
-          </section>
-        ))}
-        {visibleGroups.length === 0 && <p className={styles.empty}>无匹配效果</p>}
+        <div className={styles.sections}>
+          {visibleGroups.map((group) => (
+            <section key={group.id} className={styles.section} id={`cat-${group.id}`}>
+              <div className={styles.sectionHead}>
+                <h2>{group.label}</h2>
+                <p>{group.blurb}</p>
+              </div>
+              <div className={styles.grid}>
+                {group.items.map((item) => (
+                  <EffectCard key={item.id} pattern={item} />
+                ))}
+              </div>
+            </section>
+          ))}
+          {visibleGroups.length === 0 && <p className={styles.empty}>无匹配效果</p>}
+        </div>
       </div>
+      <aside className={styles.sidebar}>
+        <ul className={styles.catList}>
+          {filterChips.map((chip) => (
+            <li key={chip.id}>
+              <button
+                type="button"
+                className={catFilter === chip.id ? styles.catItemOn : styles.catItem}
+                onClick={() => setCatFilter(chip.id)}
+              >
+                {chip.label}
+                <span className={styles.catCount}>{chip.count}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </aside>
     </div>
   )
 }

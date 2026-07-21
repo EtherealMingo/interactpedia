@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { CATEGORIES, type Pattern } from '../content/types'
 import { patterns } from '../content/patterns'
 import { demoMap } from '../demos'
+import { DeviceFrame, deviceForPattern } from '../components/DeviceFrame'
 import styles from './PracticePage.module.css'
 
 type Round = {
@@ -92,7 +93,9 @@ export function PracticePage() {
         <article className={styles.previewCard}>
           <div className={styles.preview}>
             <div className={styles.previewInner} key={round.answer.id}>
-              {Demo ? <Demo /> : <p>暂无演示</p>}
+              <DeviceFrame kind={deviceForPattern(round.answer)} size="md">
+                {Demo ? <Demo /> : <p>暂无演示</p>}
+              </DeviceFrame>
             </div>
           </div>
           <p className={styles.hint}>

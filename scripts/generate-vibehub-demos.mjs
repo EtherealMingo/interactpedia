@@ -10,25 +10,25 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const ids = JSON.parse(readFileSync(join(root, 'scripts/vibehub-ids.json'), 'utf8'))
 
 const css = `
-.wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;width:100%;min-height:180px}
-.row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:center}
-.btn{border:none;border-radius:999px;padding:.55rem 1rem;font-weight:700;background:var(--accent);color:#fff}
-.btnGhost{border:1px solid var(--border);border-radius:999px;padding:.5rem .9rem;font-weight:600;background:#fff;color:var(--ink)}
-.btnSoft{border:1px solid var(--border);border-radius:10px;padding:.45rem .7rem;background:#fff}
-.field{border:1px solid var(--border);border-radius:10px;padding:.55rem .75rem;background:#fff;min-width:12rem}
-.meta{font-size:.82rem;color:var(--ink-faint)}
-.stage{position:relative;width:100%;max-width:420px;min-height:120px;display:flex;align-items:center;justify-content:center}
-.card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1rem;box-shadow:0 1px 0 rgba(20,32,26,.04)}
-.previewBox{width:160px;height:72px;border-radius:12px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:700}
-.miniNav{display:flex;gap:1rem;padding:.65rem 1rem;background:#fff;border:1px solid var(--border);border-radius:12px;font-weight:600;font-size:.85rem}
-.layoutBox{width:100%;max-width:460px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff;font-size:.75rem}
+.wrap{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:.5rem;width:100%;max-width:100%;margin:0;min-height:0;text-align:left}
+.row{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;justify-content:flex-start}
+.btn{border:none;border-radius:8px;padding:.45rem .85rem;font-weight:600;background:var(--accent);color:#fff}
+.btnGhost{border:1px solid var(--border);border-radius:8px;padding:.4rem .75rem;font-weight:600;background:#fff;color:var(--ink)}
+.btnSoft{border:1px solid var(--border);border-radius:8px;padding:.35rem .6rem;background:#fff}
+.field{border:1px solid var(--border);border-radius:8px;padding:.45rem .65rem;background:#fff;width:100%;min-width:0;box-sizing:border-box}
+.meta{font-size:.78rem;color:var(--ink-faint)}
+.stage{position:relative;width:100%;min-height:96px;display:flex;align-items:center;justify-content:center}
+.card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:.75rem;box-shadow:0 1px 0 rgba(20,32,26,.04);width:100%;box-sizing:border-box}
+.previewBox{width:100%;max-width:160px;height:64px;border-radius:10px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:700;margin-inline:auto}
+.miniNav{display:flex;gap:.75rem;padding:.5rem .75rem;background:#fff;border:1px solid var(--border);border-radius:10px;font-weight:600;font-size:.82rem;width:100%;box-sizing:border-box}
+.layoutBox{width:100%;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#fff;font-size:.75rem}
 .layoutHead,.layoutFoot{background:var(--bg-elevated);padding:.45rem .6rem;font-weight:700}
 .layoutBody{display:grid;grid-template-columns:72px 1fr;min-height:90px}
 .layoutSide{background:var(--preview);padding:.45rem}
 .layoutMain{padding:.45rem}
 .swatch{width:36px;height:36px;border-radius:10px;border:1px solid var(--border)}
-.tokenRow{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap;justify-content:center}
-.wire{border:1px dashed rgba(20,32,26,.2);border-radius:8px;padding:.5rem;background:rgba(255,255,255,.7)}
+.tokenRow{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;justify-content:flex-start}
+.wire{border:1px dashed rgba(58,26,22,.2);border-radius:8px;padding:.5rem;background:rgba(255,255,255,.7)}
 .fade{animation:vhFade .7s ease both}
 .slideIn{animation:vhSlide .65s ease both}
 .scaleIn{animation:vhScale .55s cubic-bezier(.2,.8,.2,1) both}
@@ -37,7 +37,7 @@ const css = `
 .staggerItem{opacity:0;animation:vhFade .45s ease forwards}
 .clipReveal{animation:vhClip .8s ease both}
 .hoverLift{transition:transform .2s ease,box-shadow .2s ease;background:#fff;border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem;font-weight:700}
-.hoverLift:hover{transform:translateY(-8px);box-shadow:0 12px 28px rgba(20,32,26,.12)}
+.hoverLift:hover{transform:translateY(-8px);box-shadow:0 12px 28px rgba(58,26,22,.12)}
 .rippleBtn{position:relative;overflow:hidden;border:none;border-radius:999px;padding:.65rem 1.2rem;background:var(--accent);color:#fff;font-weight:700}
 .rippleSpan{position:absolute;border-radius:50%;transform:scale(0);animation:vhRipple .6s linear;background:rgba(255,255,255,.45);pointer-events:none}
 .likeBurst{font-size:1.6rem;border:none;background:transparent}
@@ -45,9 +45,9 @@ const css = `
 .shake{animation:vhShake .45s ease}
 .checkmark{width:56px;height:56px}
 .checkmark path{fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-dasharray:48;stroke-dashoffset:48;animation:vhDraw .7s ease forwards}
-.spinner{width:28px;height:28px;border:3px solid rgba(20,32,26,.15);border-top-color:var(--accent);border-radius:50%;animation:vhSpin .7s linear infinite}
-.shimmer{width:180px;height:14px;border-radius:8px;background:linear-gradient(90deg,#d5ddd8,#f0f4f1,#d5ddd8);background-size:200% 100%;animation:vhShimmer 1.2s ease infinite}
-.progressAnim{width:200px;height:8px;border-radius:999px;background:rgba(20,32,26,.08);overflow:hidden}
+.spinner{width:28px;height:28px;border:3px solid rgba(58,26,22,.15);border-top-color:var(--accent);border-radius:50%;animation:vhSpin .7s linear infinite}
+.shimmer{width:180px;height:14px;border-radius:8px;background:linear-gradient(90deg,#f0d8c4,#f9ece4,#f0d8c4);background-size:200% 100%;animation:vhShimmer 1.2s ease infinite}
+.progressAnim{width:200px;height:8px;border-radius:999px;background:rgba(58,26,22,.08);overflow:hidden}
 .progressAnim>i{display:block;height:100%;width:0;background:var(--accent);animation:vhProgress 1.4s ease forwards;border-radius:inherit}
 .dots span{display:inline-block;width:8px;height:8px;margin:0 3px;border-radius:50%;background:var(--accent);animation:vhBounce 1s infinite}
 .dots span:nth-child(2){animation-delay:.15s}
@@ -58,10 +58,10 @@ const css = `
 .crossfadeB{animation:vhFade .6s ease}
 .slideTrans{animation:vhSlide .55s ease}
 .containerMorph{width:80px;height:80px;border-radius:16px;background:var(--accent);animation:vhMorph 1.4s ease infinite alternate}
-.scrollBox{width:100%;max-width:320px;height:140px;overflow:auto;border:1px solid var(--border);border-radius:12px;background:#fff}
-.revealItem{padding:.75rem;margin:.5rem;background:var(--preview);border-radius:10px;animation:vhFade .6s ease both}
+.scrollBox{width:100%;height:140px;overflow:auto;border:1px solid var(--border);border-radius:10px;background:#fff}
+.revealItem{padding:.55rem;margin:.35rem;background:var(--preview);border-radius:8px;animation:vhFade .6s ease both}
 .scrollBar{position:sticky;top:0;height:4px;background:var(--accent);transform-origin:left;width:var(--p,0%)}
-.hScroll{display:flex;gap:.6rem;overflow-x:auto;width:100%;max-width:360px;padding-bottom:.35rem}
+.hScroll{display:flex;gap:.45rem;overflow-x:auto;width:100%;padding-bottom:.25rem}
 .hScroll>div{flex:0 0 120px;height:72px;border-radius:12px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:700}
 .glow{padding:.7rem 1.1rem;border-radius:999px;background:#fff;border:1px solid var(--accent);color:var(--accent);font-weight:700;animation:vhGlow 1.4s ease infinite}
 .bounceBox{animation:vhBounceBox .8s ease infinite}
@@ -69,15 +69,15 @@ const css = `
 .flashBox{animation:vhFlash 1s ease}
 .badgePop{position:relative;padding:.6rem .9rem;background:#fff;border:1px solid var(--border);border-radius:10px}
 .badgePop i{position:absolute;top:-6px;right:-6px;background:var(--accent);color:#fff;font-size:.65rem;font-style:normal;font-weight:700;padding:2px 5px;border-radius:999px;animation:vhPop .45s ease}
-.gradFlow{width:180px;height:56px;border-radius:14px;background:linear-gradient(120deg,#2f6f4e,#7cb083,#2f6f4e);background-size:200% 200%;animation:vhGrad 2s ease infinite;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.gradFlow{width:180px;height:56px;border-radius:14px;background:linear-gradient(120deg,#d1411c,#f3bf9a,#d1411c);background-size:200% 200%;animation:vhGrad 2s ease infinite;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
 .float{animation:vhFloat 2.4s ease-in-out infinite}
 .marquee{width:240px;overflow:hidden;white-space:nowrap;border:1px solid var(--border);border-radius:999px;padding:.45rem 0;background:#fff}
 .marquee span{display:inline-block;padding-left:100%;animation:vhMarquee 8s linear infinite;font-weight:600}
 .blob{width:90px;height:90px;background:var(--accent);border-radius:40% 60% 55% 45%/50% 45% 55% 50%;animation:vhBlob 3s ease-in-out infinite}
-.breathe{width:64px;height:64px;border-radius:50%;background:rgba(47,111,78,.25);border:2px solid var(--accent);animation:vhBreathe 2s ease-in-out infinite}
+.breathe{width:64px;height:64px;border-radius:50%;background:rgba(209,65,28,.25);border:2px solid var(--accent);animation:vhBreathe 2s ease-in-out infinite}
 .type{font-weight:700;font-size:1.05rem;border-right:2px solid var(--accent);white-space:nowrap;overflow:hidden;animation:vhType 2.5s steps(12) infinite}
 .split span{display:inline-block;opacity:0;animation:vhFade .4s ease forwards}
-.gradText{font-size:1.4rem;font-weight:800;background:linear-gradient(90deg,#2f6f4e,var(--ink),#2f6f4e);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:vhGrad 2s linear infinite}
+.gradText{font-size:1.4rem;font-weight:800;background:linear-gradient(90deg,#d1411c,var(--ink),#d1411c);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:vhGrad 2s linear infinite}
 .count{font-size:2rem;font-weight:800;font-variant-numeric:tabular-nums}
 .flipCard{width:120px;height:72px;perspective:600px}
 .flipInner{width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d;position:relative}
@@ -85,25 +85,25 @@ const css = `
 .flipFace{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;background:#fff;border:1px solid var(--border)}
 .flipBack{transform:rotateY(180deg);background:var(--accent);color:#fff;border-color:var(--accent)}
 .cube{width:64px;height:64px;transform-style:preserve-3d;animation:vhCube 4s linear infinite}
-.cubeFace{position:absolute;inset:0;background:rgba(47,111,78,.85);border:1px solid #fff;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.7rem}
-.masonry{columns:3;column-gap:.4rem;width:100%;max-width:360px}
+.cubeFace{position:absolute;inset:0;background:rgba(209,65,28,.85);border:1px solid #fff;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.7rem}
+.masonry{columns:3;column-gap:.4rem;width:100%}
 .masonry>div{break-inside:avoid;margin-bottom:.4rem;background:#fff;border:1px solid var(--border);border-radius:10px;padding:.5rem;font-size:.75rem}
-.heroMini{width:100%;max-width:400px;padding:1.25rem;border-radius:14px;background:linear-gradient(135deg,var(--preview),#fff);border:1px solid var(--border)}
+.heroMini{width:100%;padding:1rem;border-radius:10px;background:linear-gradient(135deg,var(--preview),#fff);border:1px solid var(--border);box-sizing:border-box}
 .heroMini strong{font-size:1.2rem}
 .svgStage{width:160px;height:100px}
 .strokePath{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-dasharray:200;stroke-dashoffset:200;animation:vhDrawPath 2s ease forwards infinite}
 .ants{stroke-dasharray:6 6;animation:vhAnts 1s linear infinite}
-.neon{filter:drop-shadow(0 0 4px #2f6f4e) drop-shadow(0 0 10px #2f6f4e)}
+.neon{filter:drop-shadow(0 0 4px #d1411c) drop-shadow(0 0 10px #d1411c)}
 .gooey filter{position:absolute}
 .goo{display:flex;gap:0;filter:url(#goo)}
 .goo i{width:36px;height:36px;border-radius:50%;background:var(--accent);display:block;animation:vhGoo 1.6s ease-in-out infinite alternate}
 .goo i:nth-child(2){animation-delay:.2s}
 .grain{width:140px;height:80px;border-radius:12px;background:var(--accent);position:relative;overflow:hidden}
 .grain::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(0,0,0,.25) 1px,transparent 1px);background-size:3px 3px;opacity:.35;animation:vhGrain .4s steps(2) infinite}
-.liquid{width:100px;height:100px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#7cb083,var(--accent));animation:vhBlob 2.5s ease-in-out infinite}
+.liquid{width:100px;height:100px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#f3bf9a,var(--accent));animation:vhBlob 2.5s ease-in-out infinite}
 .ring{transform:rotate(-90deg)}
 .ring circle{fill:none;stroke-width:8}
-.ring .track{stroke:rgba(20,32,26,.12)}
+.ring .track{stroke:rgba(58,26,22,.12)}
 .ring .bar{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:126;stroke-dashoffset:40;animation:vhRing 1.5s ease infinite alternate}
 .gauge{overflow:visible}
 .spark path{fill:none;stroke:var(--accent);stroke-width:2}
@@ -124,10 +124,10 @@ const css = `
 @keyframes vhBounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-7px)}}
 @keyframes vhPulse{0%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:.6}100%{transform:scale(1);opacity:1}}
 @keyframes vhMorph{from{border-radius:16px;width:80px}to{border-radius:40px;width:140px}}
-@keyframes vhGlow{0%,100%{box-shadow:0 0 0 0 rgba(47,111,78,.45)}50%{box-shadow:0 0 0 10px rgba(47,111,78,0)}}
+@keyframes vhGlow{0%,100%{box-shadow:0 0 0 0 rgba(209,65,28,.45)}50%{box-shadow:0 0 0 10px rgba(209,65,28,0)}}
 @keyframes vhBounceBox{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @keyframes vhWiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(4deg)}75%{transform:rotate(-4deg)}}
-@keyframes vhFlash{0%,100%{background:#fff}40%{background:#d8e8df}}
+@keyframes vhFlash{0%,100%{background:#fff}40%{background:#f3bf9a}}
 @keyframes vhPop{from{transform:scale(0)}to{transform:scale(1)}}
 @keyframes vhGrad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 @keyframes vhFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
@@ -160,7 +160,7 @@ const componentImpl = {
   'time-picker': `() => <input className={s.field} type="time" defaultValue="14:30" />`,
   'input-number': `() => { const [v,setV]=useState(42); return <div className={s.row}><button type="button" className={s.btnSoft} onClick={()=>setV(x=>x-1)}>▼</button><strong>{v}</strong><button type="button" className={s.btnSoft} onClick={()=>setV(x=>x+1)}>▲</button></div> }`,
   rate: `() => { const [v,setV]=useState(3); return <div className={s.row}>{[1,2,3,4,5].map(n=><button key={n} type="button" style={{border:'none',background:'transparent',fontSize:'1.25rem',color:n<=v?'var(--accent)':'#ccc'}} onClick={()=>setV(n)}>★</button>)}</div> }`,
-  'color-picker': `() => { const [c,setC]=useState('#2F6F4E'); return <div className={s.row}><input type="color" value={c} onChange={e=>setC(e.target.value)} /><code>{c}</code></div> }`,
+  'color-picker': `() => { const [c,setC]=useState('#D1411C'); return <div className={s.row}><input type="color" value={c} onChange={e=>setC(e.target.value)} /><code>{c}</code></div> }`,
   cascader: `() => { const [v,setV]=useState('浙江 / 杭州'); return <div className={s.wrap}><select className={s.field} value={v} onChange={e=>setV(e.target.value)}><option>浙江 / 杭州</option><option>浙江 / 宁波</option><option>江苏 / 南京</option></select></div> }`,
   autocomplete: `() => { const [q,setQ]=useState(''); const opts=['lib','library','liberty'].filter(x=>x.includes(q)||!q); return <div className={s.wrap}><input className={s.field} value={q} onChange={e=>setQ(e.target.value)} placeholder="输入 lib…" /><div className={s.card}>{opts.map(o=><div key={o}>{o}</div>)}</div></div> }`,
   transfer: `() => { const [left,setLeft]=useState(['A 项','B 项']); const [right,setRight]=useState(['C 项']); return <div className={s.row}><div className={s.card}>{left.map(x=><div key={x}>{x}</div>)}</div><button type="button" className={s.btnSoft} onClick={()=>{ if(!left.length) return; const [m,...r]=left; setLeft(r); setRight(t=>[...t,m]); }}>›</button><div className={s.card}>{right.map(x=><div key={x}>{x}</div>)}</div></div> }`,
@@ -173,7 +173,7 @@ const componentImpl = {
   carousel: `() => { const [i,setI]=useState(0); const items=['一','二','三']; return <div className={s.wrap}><div className={s.previewBox}>第 {items[i]} 屏</div><div className={s.row}><button type="button" className={s.btnSoft} onClick={()=>setI(x=>(x+2)%3)}>‹</button><span className={s.meta}>{i+1} / 3</span><button type="button" className={s.btnSoft} onClick={()=>setI(x=>(x+1)%3)}>›</button></div></div> }`,
   comment: `() => <div className={s.card} style={{display:'flex',gap:10,width:280}}><div style={{width:36,height:36,borderRadius:'50%',background:'var(--preview)',display:'grid',placeItems:'center',fontWeight:700}}>A</div><div><strong>阿伦</strong> <span className={s.meta}>2h</span><p className={s.meta} style={{margin:0}}>这个组件很实用，收藏了。</p></div></div>`,
   descriptions: `() => <div className={s.card} style={{width:240,fontSize:13}}><div>姓名　张三</div><div>部门　设计组</div><div>状态　在职</div></div>`,
-  image: `() => <div style={{width:160,height:100,borderRadius:12,background:'linear-gradient(135deg,#2f6f4e,#7cb083)',display:'grid',placeItems:'center',color:'#fff',fontWeight:700}}>图片</div>`,
+  image: `() => <div style={{width:160,height:100,borderRadius:12,background:'linear-gradient(135deg,#d1411c,#f3bf9a)',display:'grid',placeItems:'center',color:'#fff',fontWeight:700}}>图片</div>`,
   list: `() => <div className={s.card} style={{width:200}}>{['列表项一','列表项二','列表项三'].map(x=><div key={x} style={{padding:'.35rem 0',borderBottom:'1px solid var(--border)'}}>{x}</div>)}</div>`,
   'qr-code': `() => <svg width="96" height="96" viewBox="0 0 16 16" aria-label="QR"><rect width="16" height="16" fill="#fff"/><path fill="var(--ink)" d="M1 1h5v5H1zm1 1v3h3V2zm8-1h5v5h-5zm1 1v3h3V2zM1 10h5v5H1zm1 1v3h3v-3zm7 0h1v1H9zm2 0h1v1h-1zm2 0h2v1h-2zm-4 2h1v1H9zm2 0h3v3h-1v-2h-2zm0 2h1v1h-1z"/></svg>`,
   segmented: `() => { const [v,setV]=useState('日'); return <div className={s.row} style={{background:'var(--preview)',borderRadius:999,padding:4}}>{['日','周','月'].map(x=><button key={x} type="button" className={v===x?s.btn:s.btnSoft} style={{border:'none'}} onClick={()=>setV(x)}>{x}</button>)}</div> }`,
@@ -251,7 +251,7 @@ const layoutImpl = {
 }
 
 const tokenImpl = {
-  color: `() => <div className={s.tokenRow}>{['#2F6F4E','#14201A','#5A6B62','#E6EBE8','#FFFFFF'].map(c=><div key={c} className={s.swatch} style={{background:c}} title={c} />)}</div>`,
+  color: `() => <div className={s.tokenRow}>{['#B02B26','#D1411C','#F3BF9A','#F9ECE4','#FFFFFF'].map(c=><div key={c} className={s.swatch} style={{background:c}} title={c} />)}</div>`,
   typography: `() => <div className={s.wrap} style={{alignItems:'flex-start'}}><div style={{fontSize:28,fontWeight:800}}>Display</div><div style={{fontSize:16,fontWeight:600}}>Title</div><div style={{fontSize:14}}>Body text</div><div className={s.meta}>Caption</div></div>`,
   spacing: `() => <div className={s.tokenRow}>{[4,8,12,16,24,32].map(n=><div key={n} style={{width:n,height:n,background:'var(--accent)',borderRadius:4}} title={n+'px'} />)}</div>`,
   radius: `() => <div className={s.tokenRow}>{[4,8,12,16,999].map(n=><div key={n} style={{width:40,height:40,background:'#fff',border:'1px solid var(--border)',borderRadius:n}} />)}</div>`,
@@ -268,8 +268,8 @@ const svgImpl = {
   gooey: `() => <div className={s.wrap}><svg width="0" height="0"><filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" /><feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" /></filter></svg><div className={s.goo}><i /><i /></div></div>`,
   grain: `() => <div className={s.grain} />`,
   liquid: `() => <div className={s.liquid} />`,
-  linear: `() => <svg className={s.svgStage} viewBox="0 0 120 80"><defs><linearGradient id="lg" x1="0" x2="1"><stop stopColor="#2f6f4e"/><stop offset="1" stopColor="#7cb083"/></linearGradient></defs><rect x="20" y="20" width="80" height="40" rx="10" fill="url(#lg)" /></svg>`,
-  radial: `() => <svg className={s.svgStage} viewBox="0 0 120 80"><defs><radialGradient id="rg"><stop stopColor="#7cb083"/><stop offset="1" stopColor="#2f6f4e"/></radialGradient></defs><circle cx="60" cy="40" r="28" fill="url(#rg)" /></svg>`,
+  linear: `() => <svg className={s.svgStage} viewBox="0 0 120 80"><defs><linearGradient id="lg" x1="0" x2="1"><stop stopColor="#d1411c"/><stop offset="1" stopColor="#f3bf9a"/></linearGradient></defs><rect x="20" y="20" width="80" height="40" rx="10" fill="url(#lg)" /></svg>`,
+  radial: `() => <svg className={s.svgStage} viewBox="0 0 120 80"><defs><radialGradient id="rg"><stop stopColor="#f3bf9a"/><stop offset="1" stopColor="#d1411c"/></radialGradient></defs><circle cx="60" cy="40" r="28" fill="url(#rg)" /></svg>`,
   'animated-gradient-svg': `() => <div className={s.gradFlow} style={{width:140,height:80}} />`,
   'progress-ring': `() => <svg className={s.ring} width="72" height="72" viewBox="0 0 50 50"><circle className={s.track} cx="25" cy="25" r="20" /><circle className={s.bar} cx="25" cy="25" r="20" /></svg>`,
   gauge: `() => <svg width="140" height="80" viewBox="0 0 140 80"><path d="M20 70 A50 50 0 0 1 120 70" fill="none" stroke="var(--preview)" strokeWidth="10" strokeLinecap="round" /><path d="M20 70 A50 50 0 0 1 95 28" fill="none" stroke="var(--accent)" strokeWidth="10" strokeLinecap="round" /><text x="70" y="68" textAnchor="middle" fontWeight="800" fontSize="16">72</text></svg>`,

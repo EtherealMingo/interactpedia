@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { getPattern } from '../content/patterns'
 import { CATEGORIES } from '../content/types'
 import { demoMap } from '../demos'
+import { DeviceFrame, deviceForPattern } from '../components/DeviceFrame'
 import styles from './PatternDetailPage.module.css'
 
 export function PatternDetailPage() {
@@ -52,7 +53,11 @@ export function PatternDetailPage() {
       <div className={styles.grid}>
         <section className={styles.demoPane} aria-label="现场演示">
           <h2>Live Demo</h2>
-          <div className={styles.demoFrame}>{Demo ? <Demo /> : <p>暂无演示</p>}</div>
+          <div className={styles.demoFrame}>
+            <DeviceFrame kind={deviceForPattern(pattern)} size="md">
+              {Demo ? <Demo /> : <p>暂无演示</p>}
+            </DeviceFrame>
+          </div>
         </section>
 
         <div className={styles.copy}>

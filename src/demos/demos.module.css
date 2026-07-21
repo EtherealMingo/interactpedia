@@ -1,17 +1,22 @@
 .demo {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0.5rem;
   position: relative;
-  min-height: 100%;
-  height: 100%;
   width: 100%;
+  max-width: 100%;
+  margin: 0;
+  text-align: left;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .btn,

@@ -49,7 +49,7 @@ export function InputNumberDemo() { const [v,setV]=useState(42); return <div cla
 
 export function RateDemo() { const [v,setV]=useState(3); return <div className={s.row}>{[1,2,3,4,5].map(n=><button key={n} type="button" style={{border:'none',background:'transparent',fontSize:'1.25rem',color:n<=v?'var(--accent)':'#ccc'}} onClick={()=>setV(n)}>★</button>)}</div> }
 
-export function ColorPickerDemo() { const [c,setC]=useState('#2F6F4E'); return <div className={s.row}><input type="color" value={c} onChange={e=>setC(e.target.value)} /><code>{c}</code></div> }
+export function ColorPickerDemo() { const [c,setC]=useState('#D1411C'); return <div className={s.row}><input type="color" value={c} onChange={e=>setC(e.target.value)} /><code>{c}</code></div> }
 
 export function CascaderDemo() { const [v,setV]=useState('浙江 / 杭州'); return <div className={s.wrap}><select className={s.field} value={v} onChange={e=>setV(e.target.value)}><option>浙江 / 杭州</option><option>浙江 / 宁波</option><option>江苏 / 南京</option></select></div> }
 
@@ -92,7 +92,7 @@ export function DescriptionsDemo() {
 }
 
 export function ImageDemo() {
-  return (<div style={{width:160,height:100,borderRadius:12,background:'linear-gradient(135deg,#2f6f4e,#7cb083)',display:'grid',placeItems:'center',color:'#fff',fontWeight:700}}>图片</div>)
+  return (<div style={{width:160,height:100,borderRadius:12,background:'linear-gradient(135deg,#d1411c,#f3bf9a)',display:'grid',placeItems:'center',color:'#fff',fontWeight:700}}>图片</div>)
 }
 
 export function ListDemo() {
@@ -310,7 +310,7 @@ export function MediaObjectDemo() {
 }
 
 export function ColorDemo() {
-  return (<div className={s.tokenRow}>{['#2F6F4E','#14201A','#5A6B62','#E6EBE8','#FFFFFF'].map(c=><div key={c} className={s.swatch} style={{background:c}} title={c} />)}</div>)
+  return (<div className={s.tokenRow}>{['#B02B26','#D1411C','#F3BF9A','#F9ECE4','#FFFFFF'].map(c=><div key={c} className={s.swatch} style={{background:c}} title={c} />)}</div>)
 }
 
 export function TypographyDemo() {
@@ -366,11 +366,11 @@ export function LiquidDemo() {
 }
 
 export function LinearDemo() {
-  return (<svg className={s.svgStage} viewBox="0 0 120 80"><defs><linearGradient id="lg" x1="0" x2="1"><stop stopColor="#2f6f4e"/><stop offset="1" stopColor="#7cb083"/></linearGradient></defs><rect x="20" y="20" width="80" height="40" rx="10" fill="url(#lg)" /></svg>)
+  return (<svg className={s.svgStage} viewBox="0 0 120 80"><defs><linearGradient id="lg" x1="0" x2="1"><stop stopColor="#d1411c"/><stop offset="1" stopColor="#f3bf9a"/></linearGradient></defs><rect x="20" y="20" width="80" height="40" rx="10" fill="url(#lg)" /></svg>)
 }
 
 export function RadialDemo() {
-  return (<svg className={s.svgStage} viewBox="0 0 120 80"><defs><radialGradient id="rg"><stop stopColor="#7cb083"/><stop offset="1" stopColor="#2f6f4e"/></radialGradient></defs><circle cx="60" cy="40" r="28" fill="url(#rg)" /></svg>)
+  return (<svg className={s.svgStage} viewBox="0 0 120 80"><defs><radialGradient id="rg"><stop stopColor="#f3bf9a"/><stop offset="1" stopColor="#d1411c"/></radialGradient></defs><circle cx="60" cy="40" r="28" fill="url(#rg)" /></svg>)
 }
 
 export function AnimatedGradientSvgDemo() {

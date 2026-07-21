@@ -1,0 +1,250 @@
+.phone,
+.desktop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.deviceLabel {
+  margin-top: 0.45rem;
+  font-size: 0.68rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.04em;
+}
+
+/* —— Phone：固定 9:19.5 —— */
+.phoneBezel {
+  --device-ratio: 9 / 19.5;
+  position: relative;
+  box-sizing: border-box;
+  width: var(--device-w);
+  aspect-ratio: var(--device-ratio);
+  height: auto;
+  background: #1a2420;
+  border-radius: calc(var(--device-w) * 0.16);
+  padding: calc(var(--device-w) * 0.045);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 12px 32px rgba(20, 32, 26, 0.22);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.notch {
+  position: absolute;
+  top: calc(var(--device-w) * 0.07);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28%;
+  height: calc(var(--device-w) * 0.04);
+  border-radius: 999px;
+  background: #0d1411;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.phoneScreen {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  background: #fff;
+  border-radius: calc(var(--device-w) * 0.11);
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.desktopScreen {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  overflow: auto;
+}
+
+/* 真实系统边距：内容铺满屏幕，仅留安全边距 */
+.stage {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.phone .stage {
+  padding: 12px 14px;
+}
+
+.desktop .stage {
+  padding: 14px 16px;
+}
+
+.stage > * {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* —— Desktop：固定 16:10（含顶栏） —— */
+.desktop {
+  --device-ratio: 16 / 10;
+  box-sizing: border-box;
+  width: var(--device-w);
+  aspect-ratio: var(--device-ratio);
+  height: auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(20, 32, 26, 0.14);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 10px 28px rgba(20, 32, 26, 0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.desktopChrome {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.45rem 0.65rem;
+  background: linear-gradient(180deg, #f4f6f4, #e8ece9);
+  border-bottom: 1px solid rgba(20, 32, 26, 0.1);
+}
+
+.traffic {
+  display: flex;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.traffic i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: block;
+  background: #d4d8d5;
+}
+
+.traffic i:nth-child(1) {
+  background: #e07171;
+}
+.traffic i:nth-child(2) {
+  background: #e0b35c;
+}
+.traffic i:nth-child(3) {
+  background: #6aae7a;
+}
+
+.urlBar {
+  flex: 1;
+  min-width: 0;
+  height: 22px;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid rgba(20, 32, 26, 0.08);
+  display: flex;
+  align-items: center;
+  padding: 0 0.55rem;
+  font-size: 0.68rem;
+  color: var(--ink-faint);
+  font-family: ui-monospace, monospace;
+}
+
+.urlBar span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.desktopScreen > * {
+  max-width: 100%;
+}
+
+/* —— 尺寸只改宽度，比例不变 —— */
+.size_sm.phone {
+  --device-w: 132px;
+}
+.size_sm.desktop {
+  --device-w: 260px;
+}
+
+.size_sm .stage {
+  padding: 8px 10px;
+}
+
+.size_sm .stage > * {
+  transform: none;
+}
+
+.size_md.phone .stage,
+.size_md.desktop .stage {
+  padding: 12px 14px;
+}
+
+.size_lg.desktop .stage {
+  padding: 16px 18px;
+}
+
+.size_lg.phone .stage {
+  padding: 14px 16px;
+}
+
+.size_sm .desktopChrome {
+  padding: 0.3rem 0.45rem;
+}
+
+.size_sm .urlBar {
+  height: 16px;
+  font-size: 0.58rem;
+}
+
+.size_sm .traffic i {
+  width: 6px;
+  height: 6px;
+}
+
+.size_md.phone {
+  --device-w: 220px;
+}
+.size_md.desktop {
+  --device-w: 480px;
+  max-width: 100%;
+}
+
+.size_lg.phone {
+  --device-w: 280px;
+}
+.size_lg.desktop {
+  --device-w: 640px;
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  .size_md.phone {
+    --device-w: 180px;
+  }
+  .size_lg.phone {
+    --device-w: 200px;
+  }
+  .size_md.desktop,
+  .size_lg.desktop {
+    --device-w: min(100%, 420px);
+  }
+}
